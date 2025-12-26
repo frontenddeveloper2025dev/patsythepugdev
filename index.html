@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patsy The Pug.dev</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #0d1117;
+        color: #c9d1d9;
+        overflow-x: hidden;
+      }
+
+      .code-font {
+        font-family: "Fira Code", "Courier New", monospace;
+      }
+
+      .neon-shadow {
+        text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+      }
+
+      .glow-border {
+        box-shadow: 0 0 15px currentColor,
+          inset 0 0 15px rgba(255, 255, 255, 0.1);
+      }
+
+      .glitter {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glitter::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.3) 50%,
+          transparent 70%
+        );
+        animation: glitter 3s infinite;
+      }
+
+      @keyframes glitter {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      .stat-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-2px);
+        border-color: currentColor;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 2px solid currentColor;
+      }
+
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fe1254, #ec15db, #3b57fd);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        border: 3px solid #30363d;
+        position: relative;
+      }
+
+      .nav-link {
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .nav-link:hover {
+        background: #161b22;
+        border-color: currentColor;
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full">
+    <div
+      id="app"
+      class="w-full h-full"
+      style="min-height: 100%; background: #0d1117"
+    >
+      <!-- Header Navigation -->
+      <header
+        style="
+          background: #161b22;
+          border-bottom: 1px solid #30363d;
+          padding: 16px 24px;
+        "
+      >
+        <div
+          style="
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+          "
+        >
+          <div style="display: flex; align-items: center; gap: 16px">
+            <h1
+              id="site-title"
+              class="code-font neon-shadow"
+              style="font-size: 20px; font-weight: 700; color: #fe1254"
+            >
+              Patsy The Pug.dev
+            </h1>
+          </div>
+          <nav style="display: flex; gap: 8px; flex-wrap: wrap">
+            <a
+              href="#overview"
+              class="nav-link code-font"
+              style="color: #00b3fe; text-decoration: none; font-size: 14px"
+              >Overview</a
+            >
+            <a
+              href="#repos"
+              class="nav-link code-font"
+              style="color: #a3fc06; text-decoration: none; font-size: 14px"
+              >Repositories</a
+            >
+            <a
+              href="#projects"
+              class="nav-link code-font"
+              style="color: #febd00; text-decoration: none; font-size: 14px"
+              >Projects</a
+            >
+            <a
+              href="#packages"
+              class="nav-link code-font"
+              style="color: #ec15db; text-decoration: none; font-size: 14px"
+              >Packages</a
+            >
+          </nav>
+        </div>
+      </header>
+      <!-- Main Content -->
+      <main style="max-width: 1280px; margin: 0 auto; padding: 32px 24px">
+        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 24px">
+          <!-- Left Sidebar -->
+          <aside>
+            <!-- Profile Card -->
+            <div style="position: sticky; top: 24px">
+              <div class="profile-avatar glitter" style="margin: 0 auto 16px">
+                🐶
+              </div>
+              <div style="text-align: center; margin-bottom: 16px">
+                <h2
+                  id="username"
+                  style="
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: #c9d1d9;
+                    margin-bottom: 4px;
+                  "
+                >
+                  PatsyThePug
+                </h2>
+                <p
+                  id="pronouns"
+                  class="code-font"
+                  style="color: #8b949e; font-size: 14px"
+                >
+                  she/her
+                </p>
+              </div>
+              <!-- Bio -->
+              <div
+                style="
+                  background: #161b22;
+                  border: 1px solid #30363d;
+                  border-radius: 6px;
+                  padding: 16px;
+                  margin-bottom: 16px;
+                "
+              >
+                <p
+                  id="bio-line1"
+                  style="
+                    color: #c9d1d9;
+                    margin-bottom: 8px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                  "
+                >
+                  Patsy Pugneranian, edición limitada con glitter.
+                </p>
+                <p
+                  id="bio-line2"
+                  style="
+                    color: #c9d1d9;
+                    margin-bottom: 8px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                  "
+                >
+                  Debuggeo emociones, rompo código, duermo en deploy.
+                </p>
+                <p
+                  id="bio-line3"
+                  style="color: #c9d1d9; font-size: 14px; line-height: 1.5"
+                >
+                  Mini dev en entrenamiento, caos con patitas. 💻
+                </p>
+              </div>
+              <!-- Location -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 16px;
+                  padding: 0 8px;
+                "
+              >
+                <span style="font-size: 16px">📍</span>
+                <span id="location" style="color: #8b949e; font-size: 14px"
+                  >CIUDAD DE MEXICO</span
+                >
+              </div>
+              <!-- Badges -->
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 8px;
+                  margin-bottom: 16px;
+                "
+              >
+                <span class="badge" style="color: #fe1254"
+                  >✨ Glitter Edition</span
+                >
+                <span class="badge" style="color: #00d064">🐾 Mini Dev</span>
+                <span class="badge" style="color: #3b57fd"
+                  >💤 Deploy Sleeper</span
+                >
+              </div>
+            </div>
+          </aside>
+          <!-- Main Content Area -->
+          <div>
+            <!-- Contribution Graph -->
+            <section style="margin-bottom: 24px">
+              <h3
+                style="
+                  font-size: 16px;
+                  font-weight: 600;
+                  margin-bottom: 16px;
+                  color: #c9d1d9;
+                "
+              >
+                <span style="color: #a3fc06">🟢</span> Contribution activity
+              </h3>
+              <div
+                style="
+                  background: #161b22;
+                  border: 1px solid #30363d;
+                  border-radius: 6px;
+                  padding: 16px;
+                  overflow-x: auto;
+                "
+              >
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(52, 12px);
+                    gap: 3px;
+                  "
+                >
+                  <!-- Contribution squares -->
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                    title="Commits"
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #161b22;
+                      border: 1px solid #30363d;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #39d353;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #0e4429;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #00d064;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #006d32;
+                      border-radius: 2px;
+                    "
+                  ></div>
+                </div>
+                <p
+                  class="code-font"
+                  style="margin-top: 12px; font-size: 12px; color: #8b949e"
+                >
+                  🐾 Mostly commits at nap time and during treats
+                </p>
+              </div>
+            </section>
+            <!-- Stats Grid -->
+            <section style="margin-bottom: 24px">
+              <h3
+                style="
+                  font-size: 16px;
+                  font-weight: 600;
+                  margin-bottom: 16px;
+                  color: #c9d1d9;
+                "
+              >
+                <span style="color: #febd00">⚡</span> Dev Stats
+              </h3>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  gap: 16px;
+                "
+              >
+                <div class="stat-card">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span style="color: #fe1254; font-size: 24px">🐞</span>
+                    <span
+                      class="code-font"
+                      style="font-size: 24px; font-weight: 700; color: #fe1254"
+                      >127</span
+                    >
+                  </div>
+                  <p style="color: #8b949e; font-size: 13px">Bugs Debugged</p>
+                </div>
+                <div class="stat-card">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span style="color: #a3fc06; font-size: 24px">💻</span>
+                    <span
+                      class="code-font"
+                      style="font-size: 24px; font-weight: 700; color: #a3fc06"
+                      >42</span
+                    >
+                  </div>
+                  <p style="color: #8b949e; font-size: 13px">Naps on Deploy</p>
+                </div>
+                <div class="stat-card">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span style="color: #3b57fd; font-size: 24px">💔</span>
+                    <span
+                      class="code-font"
+                      style="font-size: 24px; font-weight: 700; color: #3b57fd"
+                      >∞</span
+                    >
+                  </div>
+                  <p style="color: #8b949e; font-size: 13px">Code Broken</p>
+                </div>
+                <div class="stat-card">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span style="color: #ec15db; font-size: 24px">✨</span>
+                    <span
+                      class="code-font"
+                      style="font-size: 24px; font-weight: 700; color: #ec15db"
+                      >100%</span
+                    >
+                  </div>
+                  <p style="color: #8b949e; font-size: 13px">Glitter Level</p>
+                </div>
+              </div>
+            </section>
+            <!-- Pinned Repositories -->
+            <section>
+              <h3
+                style="
+                  font-size: 16px;
+                  font-weight: 600;
+                  margin-bottom: 16px;
+                  color: #c9d1d9;
+                "
+              >
+                <span style="color: #00b3fe">📌</span> Pinned Repositories
+              </h3>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                  gap: 16px;
+                "
+              >
+                <div class="stat-card" style="border-left: 3px solid #fe1254">
+                  <h4
+                    class="code-font"
+                    style="
+                      color: #fe1254;
+                      font-size: 16px;
+                      font-weight: 600;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    🐾 emotional-debugger
+                  </h4>
+                  <p
+                    style="
+                      color: #8b949e;
+                      font-size: 13px;
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    A revolutionary tool for debugging feelings. Works best with
+                    treats.
+                  </p>
+                  <div style="display: flex; gap: 12px; align-items: center">
+                    <span
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 12px;
+                        color: #8b949e;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #fe1254;
+                          border-radius: 50%;
+                        "
+                      ></span>
+                      TypeScript
+                    </span>
+                    <span style="font-size: 12px; color: #8b949e">⭐ 420</span>
+                  </div>
+                </div>
+                <div class="stat-card" style="border-left: 3px solid #a3fc06">
+                  <h4
+                    class="code-font"
+                    style="
+                      color: #a3fc06;
+                      font-size: 16px;
+                      font-weight: 600;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    💤 deploy-sleep
+                  </h4>
+                  <p
+                    style="
+                      color: #8b949e;
+                      font-size: 13px;
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    Sleep scheduler optimized for deployment times. Never miss a
+                    nap.
+                  </p>
+                  <div style="display: flex; gap: 12px; align-items: center">
+                    <span
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 12px;
+                        color: #8b949e;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #a3fc06;
+                          border-radius: 50%;
+                        "
+                      ></span>
+                      JavaScript
+                    </span>
+                    <span style="font-size: 12px; color: #8b949e">⭐ 69</span>
+                  </div>
+                </div>
+                <div class="stat-card" style="border-left: 3px solid #3b57fd">
+                  <h4
+                    class="code-font"
+                    style="
+                      color: #3b57fd;
+                      font-size: 16px;
+                      font-weight: 600;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    ✨ glitter-framework
+                  </h4>
+                  <p
+                    style="
+                      color: #8b949e;
+                      font-size: 13px;
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    CSS framework with extra sparkle. Limited edition only.
+                  </p>
+                  <div style="display: flex; gap: 12px; align-items: center">
+                    <span
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 12px;
+                        color: #8b949e;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #3b57fd;
+                          border-radius: 50%;
+                        "
+                      ></span>
+                      CSS
+                    </span>
+                    <span style="font-size: 12px; color: #8b949e">⭐ 999</span>
+                  </div>
+                </div>
+                <div class="stat-card" style="border-left: 3px solid #ec15db">
+                  <h4
+                    class="code-font"
+                    style="
+                      color: #ec15db;
+                      font-size: 16px;
+                      font-weight: 600;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    🐶 chaos-with-paws
+                  </h4>
+                  <p
+                    style="
+                      color: #8b949e;
+                      font-size: 13px;
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    A chaotic package manager for mini devs. Breaks everything
+                    beautifully.
+                  </p>
+                  <div style="display: flex; gap: 12px; align-items: center">
+                    <span
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 12px;
+                        color: #8b949e;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #ec15db;
+                          border-radius: 50%;
+                        "
+                      ></span>
+                      Rust
+                    </span>
+                    <span style="font-size: 12px; color: #8b949e">⭐ 1337</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <footer
+        style="
+          background: #161b22;
+          border-top: 1px solid #30363d;
+          padding: 32px 24px;
+          margin-top: 48px;
+        "
+      >
+        <div style="max-width: 1280px; margin: 0 auto; text-align: center">
+          <p
+            class="code-font neon-shadow"
+            style="color: #a3fc06; font-size: 14px; margin-bottom: 8px"
+          >
+            🐾 Made with chaos and glitter by Patsy
+          </p>
+          <p style="color: #8b949e; font-size: 12px">
+            © 2024 Patsy The Pug.dev · All bugs reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const defaultConfig = {
+        site_title: "Patsy The Pug.dev",
+        username: "PatsyThePug",
+        pronouns: "she/her",
+        bio_line1: "Patsy Pugneranian, edición limitada con glitter.",
+        bio_line2: "Debuggeo emociones, rompo código, duermo en deploy.",
+        bio_line3: "Mini dev en entrenamiento, caos con patitas. 💻",
+        location: "CIUDAD DE MEXICO",
+        background_color: "#0d1117",
+        card_color: "#161b22",
+        text_color: "#c9d1d9",
+        accent_primary: "#FE1254",
+        accent_secondary: "#A3FC06",
+        font_family: "Inter",
+        font_size: 14,
+      };
+
+      let config = { ...defaultConfig };
+
+      async function onConfigChange(newConfig) {
+        config = { ...config, ...newConfig };
+
+        const baseFont = config.font_family || defaultConfig.font_family;
+        const baseFontStack = `${baseFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+        const baseFontSize = config.font_size || defaultConfig.font_size;
+
+        document.body.style.fontFamily = baseFontStack;
+        document.body.style.fontSize = `${baseFontSize}px`;
+
+        const siteTitle = document.getElementById("site-title");
+        if (siteTitle) {
+          siteTitle.textContent = config.site_title || defaultConfig.site_title;
+          siteTitle.style.fontSize = `${baseFontSize * 1.43}px`;
+        }
+
+        const username = document.getElementById("username");
+        if (username) {
+          username.textContent = config.username || defaultConfig.username;
+          username.style.fontSize = `${baseFontSize * 1.86}px`;
+        }
+
+        const pronouns = document.getElementById("pronouns");
+        if (pronouns) {
+          pronouns.textContent = config.pronouns || defaultConfig.pronouns;
+          pronouns.style.fontSize = `${baseFontSize}px`;
+        }
+
+        const bioLine1 = document.getElementById("bio-line1");
+        if (bioLine1) {
+          bioLine1.textContent = config.bio_line1 || defaultConfig.bio_line1;
+          bioLine1.style.fontSize = `${baseFontSize}px`;
+        }
+
+        const bioLine2 = document.getElementById("bio-line2");
+        if (bioLine2) {
+          bioLine2.textContent = config.bio_line2 || defaultConfig.bio_line2;
+          bioLine2.style.fontSize = `${baseFontSize}px`;
+        }
+
+        const bioLine3 = document.getElementById("bio-line3");
+        if (bioLine3) {
+          bioLine3.textContent = config.bio_line3 || defaultConfig.bio_line3;
+          bioLine3.style.fontSize = `${baseFontSize}px`;
+        }
+
+        const location = document.getElementById("location");
+        if (location) {
+          location.textContent = config.location || defaultConfig.location;
+          location.style.fontSize = `${baseFontSize}px`;
+        }
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.card_color || defaultConfig.card_color,
+              set: (value) => {
+                config.card_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ card_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.accent_primary || defaultConfig.accent_primary,
+              set: (value) => {
+                config.accent_primary = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ accent_primary: value });
+                }
+              },
+            },
+            {
+              get: () =>
+                config.accent_secondary || defaultConfig.accent_secondary,
+              set: (value) => {
+                config.accent_secondary = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ accent_secondary: value });
+                }
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["username", config.username || defaultConfig.username],
+          ["pronouns", config.pronouns || defaultConfig.pronouns],
+          ["bio_line1", config.bio_line1 || defaultConfig.bio_line1],
+          ["bio_line2", config.bio_line2 || defaultConfig.bio_line2],
+          ["bio_line3", config.bio_line3 || defaultConfig.bio_line3],
+          ["location", config.location || defaultConfig.location],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9b3dbc3484c4eef2',t:'MTc2NjcyMjI5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
