@@ -135,9 +135,16 @@
         style="
           background: #161b22;
           border-bottom: 1px solid #30363d;
-          padding: 16px 24px;
+          padding: 12px 16px;
         "
       >
+        <style>
+          @media (min-width: 768px) {
+            header {
+              padding: 16px 24px !important;
+            }
+          }
+        </style>
         <div
           style="
             max-width: 1280px;
@@ -146,25 +153,47 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
           "
         >
           <div style="display: flex; align-items: center; gap: 16px">
             <img
               src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/patsy-logo-footer-CfE7TuHM.png"
               alt="Patsy The Pug Logo"
-              style="height: 65px; width: auto"
+              style="height: 50px; width: auto"
             />
+            <style>
+              @media (min-width: 768px) {
+                header img {
+                  height: 65px !important;
+                }
+              }
+            </style>
           </div>
           <nav
             style="
               display: flex;
-              gap: 8px;
+              gap: 6px;
               flex-wrap: wrap;
               align-items: center;
+              justify-content: center;
+              width: 100%;
             "
           >
-            <a
+            <style>
+              @media (min-width: 768px) {
+                nav {
+                  width: auto !important;
+                  gap: 8px !important;
+                }
+              }
+              @media (max-width: 767px) {
+                .nav-link {
+                  font-size: 12px !important;
+                  padding: 6px 10px !important;
+                }
+              }</style
+            ><a
               href="#overview"
               class="nav-link code-font"
               style="color: #00b3fe; text-decoration: none; font-size: 14px"
@@ -198,14 +227,48 @@
         </div>
       </header>
       <!-- Main Content -->
-      <main style="max-width: 1280px; margin: 0 auto; padding: 32px 24px">
-        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 24px">
-          <!-- Left Sidebar -->
+      <main style="max-width: 1280px; margin: 0 auto; padding: 16px">
+        <style>
+          @media (min-width: 768px) {
+            main {
+              padding: 32px 24px !important;
+            }
+          }
+        </style>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 24px">
+          <style>
+            @media (min-width: 768px) {
+              main > div {
+                grid-template-columns: 300px 1fr !important;
+              }
+            }</style
+          ><!-- Left Sidebar -->
           <aside>
             <!-- Profile Card -->
-            <div style="position: sticky; top: 24px">
-              <div class="profile-avatar glitter" style="margin: 0 auto 16px">
-                🐶
+            <div style="position: relative; top: 0">
+              <style>
+                @media (min-width: 768px) {
+                  aside > div {
+                    position: sticky !important;
+                    top: 24px !important;
+                  }
+                }
+              </style>
+              <div
+                class="profile-avatar glitter"
+                style="margin: 0 auto 16px; overflow: hidden"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/patsy.png"
+                  alt="Patsy"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  "
+                  onerror="this.style.display='none'; this.parentElement.innerHTML='🐶';"
+                />
               </div>
               <div style="text-align: center; margin-bottom: 16px">
                 <h2
@@ -246,7 +309,7 @@
                     line-height: 1.5;
                   "
                 >
-                  Patsy Pugneranian, edición limitada con glitter.
+                  ✨ Patsy Pugneranian, edición limitada con glitter. 💎
                 </p>
                 <p
                   id="bio-line2"
@@ -257,13 +320,13 @@
                     line-height: 1.5;
                   "
                 >
-                  Debuggeo emociones, rompo código, duermo en deploy.
+                  💕 Debuggeo emociones, rompo código, duermo en deploy. 😴
                 </p>
                 <p
                   id="bio-line3"
                   style="color: #c9d1d9; font-size: 14px; line-height: 1.5"
                 >
-                  Mini dev en entrenamiento, caos con patitas. 💻
+                  🐾 Mini dev en entrenamiento, caos con patitas. 💻✨
                 </p>
               </div>
               <!-- Location -->
@@ -291,11 +354,14 @@
                 "
               >
                 <span class="badge" style="color: #fe1254"
-                  >✨ Glitter Edition</span
+                  >✨💎 Glitter Edition</span
                 >
-                <span class="badge" style="color: #00d064">🐾 Mini Dev</span>
+                <span class="badge" style="color: #00d064">🐾💕 Mini Dev</span>
                 <span class="badge" style="color: #3b57fd"
-                  >💤 Deploy Sleeper</span
+                  >💤😴 Deploy Sleeper</span
+                >
+                <span class="badge" style="color: #ec15db"
+                  >🌟💖 Forever Loved</span
                 >
               </div>
             </div>
@@ -779,10 +845,17 @@
               <div
                 style="
                   display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                  gap: 16px;
+                  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                  gap: 12px;
                 "
               >
+                <style>
+                  @media (min-width: 768px) {
+                    .stat-card:first-child {
+                      gap: 16px !important;
+                    }
+                  }
+                </style>
                 <div class="stat-card">
                   <div
                     style="
@@ -870,24 +943,457 @@
                 <span style="color: #ec15db">📸</span> Instagram Feed
               </h3>
               <div
-                id="instagram-grid"
                 style="
                   background: #161b22;
                   border: 1px solid #30363d;
                   border-radius: 6px;
-                  padding: 24px;
+                  padding: 16px;
                 "
               >
-                <div style="text-align: center; padding: 48px 24px">
-                  <div style="font-size: 64px; margin-bottom: 16px">📷</div>
-                  <p
-                    style="color: #8b949e; font-size: 14px; margin-bottom: 8px"
+                <style>
+                  @media (min-width: 768px) {
+                    #instagram > div {
+                      padding: 24px !important;
+                    }
+                  }
+                </style>
+                <div
+                  class="instagram-grid"
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(
+                      auto-fill,
+                      minmax(280px, 1fr)
+                    );
+                    gap: 16px;
+                  "
+                >
+                  <style>
+                    @media (max-width: 767px) {
+                      .instagram-grid {
+                        grid-template-columns: 1fr !important;
+                      }
+                    }</style
+                  ><!-- Post 1 - Café con amigos -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
                   >
-                    Cargando feed de Instagram...
-                  </p>
-                  <p class="code-font" style="color: #fe1254; font-size: 12px">
-                    ¿Tienes las imágenes del feed? 🐾
-                  </p>
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/patsy%20pug%20(6).png"
+                        alt="Café con amigos"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        ☕🤍
+                        <strong>"Los mejores momentos son simples."</strong>
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Una mesa, algo caliente, y compañía que se queda 🐾🤖🦉
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Patsy 💖</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Amistad 🤍</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#SoftMoments ☕</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Post 2 - Helados -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
+                  >
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/patsy%2C%20duo%20y%20rigo%202.png"
+                        alt="Helados y felicidad"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        🍦✨
+                        <strong
+                          >La felicidad también se aprende jugando.</strong
+                        >
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Patsy lo sabía desde siempre 🍨💫
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Joy 🌟</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#LoveWithoutNoise 💕</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#PlayfulSoul 🍦</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Post 3 - París -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
+                  >
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/ChatGPT%20Image%203%20jul%202025%2C%2021_16_51.png"
+                        alt="Café en París"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        🥐🌍
+                        <strong
+                          >— Comment t'appelles-tu ? — Je m'appelle
+                          Patsy.</strong
+                        >
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Y así, con suavidad, se presentó al mundo 🐶💫
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#PatsyInParis 🗼</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Hogar 🏠</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#SoftMoments ☕</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Post 4 - Parque y columpio -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
+                  >
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/patsy%2C%20duo%20y%20rigo.png"
+                        alt="Parque y arcoíris"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        🌈💫 <strong>La infancia no es una edad.</strong>
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Es un lugar al que volvemos cuando todo está bien 🐾✨
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#PureJoy 🌟</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Rainbow 🌈</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#ForeverYoung 💖</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Post 5 - Amistad diversa -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
+                  >
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/2.png"
+                        alt="Amistad sin límites"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        🤖🦉🐶
+                        <strong
+                          >Diferentes formas, distintas voces, la misma
+                          alegría.</strong
+                        >
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        La verdadera amistad no conoce diferencias 💫🤍
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Amistad 💖</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#Diversity 🌈</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#LoveWithoutNoise 🤍</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Post 6 - Cierre -->
+                  <div
+                    style="
+                      background: #0d1117;
+                      border: 1px solid #30363d;
+                      border-radius: 8px;
+                      overflow: hidden;
+                      transition: all 0.3s ease;
+                      cursor: pointer;
+                    "
+                    onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#EC15DB';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#30363d';"
+                  >
+                    <div
+                      style="
+                        aspect-ratio: 1;
+                        overflow: hidden;
+                        background: #000;
+                      "
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/frontenddeveloper2025dev/patsythepugdev/refs/heads/main/3.png"
+                        alt="Para siempre en el corazón"
+                        style="width: 100%; height: 100%; object-fit: cover"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+                      />
+                    </div>
+                    <div style="padding: 12px">
+                      <p
+                        style="
+                          color: #c9d1d9;
+                          font-size: 13px;
+                          line-height: 1.5;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        🧡🌿 <strong>Patsy nos enseñó esto:</strong>
+                      </p>
+                      <p
+                        style="
+                          color: #8b949e;
+                          font-size: 12px;
+                          line-height: 1.4;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Vivir bonito también es resistir. Y amar, siempre. 💫🤍
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 8px;
+                          flex-wrap: wrap;
+                          margin-top: 8px;
+                        "
+                      >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#MemoriaViva 🌟</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#ForeverInOurHearts 💖</span
+                        >
+                        <span style="color: #ec15db; font-size: 11px"
+                          >#ThankYouPatsy 🤍</span
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -903,13 +1409,17 @@
               >
                 <span style="color: #00b3fe">📌</span> Pinned Repositories
               </h3>
-              <div
-                style="
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                  gap: 16px;
-                "
-              >
+              <div style="display: grid; grid-template-columns: 1fr; gap: 16px">
+                <style>
+                  @media (min-width: 768px) {
+                    section:last-of-type > div {
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(300px, 1fr)
+                      ) !important;
+                    }
+                  }
+                </style>
                 <div class="stat-card" style="border-left: 3px solid #fe1254">
                   <h4
                     class="code-font"
@@ -1103,19 +1613,58 @@
         style="
           background: #161b22;
           border-top: 1px solid #30363d;
-          padding: 32px 24px;
-          margin-top: 48px;
+          padding: 24px 16px;
+          margin-top: 32px;
         "
       >
+        <style>
+          @media (min-width: 768px) {
+            footer {
+              padding: 32px 24px !important;
+              margin-top: 48px !important;
+            }
+          }
+        </style>
         <div style="max-width: 1280px; margin: 0 auto; text-align: center">
           <p
             class="code-font neon-shadow"
-            style="color: #a3fc06; font-size: 14px; margin-bottom: 8px"
+            style="color: #a3fc06; font-size: 13px; margin-bottom: 8px"
           >
-            🐾 Made with chaos and glitter by Patsy
+            🐾✨ Made with chaos, love and glitter by Patsy 💖✨🐾
           </p>
-          <p style="color: #8b949e; font-size: 12px">
-            © 2024 Patsy The Pug.dev · All bugs reserved
+          <style>
+            @media (min-width: 768px) {
+              footer .code-font {
+                font-size: 14px !important;
+              }
+              footer p:last-child {
+                font-size: 13px !important;
+              }
+            }
+          </style>
+          <p style="color: #8b949e; font-size: 11px; margin-bottom: 12px">
+            © 2024 Patsy The Pug.dev · All bugs reserved 🐞💻
+          </p>
+          <style>
+            @media (min-width: 768px) {
+              footer p:nth-child(2) {
+                font-size: 12px !important;
+              }
+            }
+          </style>
+          <p
+            style="
+              color: #fe1254;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 1.6;
+              max-width: 600px;
+              margin: 16px auto 0;
+            "
+          >
+            💕 Las almas pequeñas dejan huellas gigantes 🐾<br />
+            Patsy, tu luz sigue brillando en cada línea de código 🌟<br />
+            Siempre en nuestros corazones 🤍✨
           </p>
         </div>
       </footer>
@@ -1294,7 +1843,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'9b3e231c01f1eef2',t:'MTc2NjcyNjUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9b3ea0db50e7eef2',t:'MTc2NjczMTY2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
